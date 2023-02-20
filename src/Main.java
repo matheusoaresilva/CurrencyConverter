@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Convert convert = new Convert();
+        Convert convert = new Convert(5.17, 5.52, 0.0040,6.22);
         System.out.print("Please, enter the value you wish to convert(R$): ");
         double value = sc.nextInt();
 
@@ -18,19 +18,19 @@ public class Main {
 
         switch (coin){
             case 1:
-                convertedValue = convert.Euro(value);
-                symbol = "€";
-                break;
-            case 2:
-                convertedValue = convert.Dolar(value);
+                convertedValue = convert.toDollar(value);
                 symbol = "$";
                 break;
+            case 2:
+                convertedValue = convert.ToEuro(value);
+                symbol = "€";
+                break;
             case 3:
-                convertedValue = convert.Won(value);
+                convertedValue = convert.ToWon(value);
                 symbol = "₩";
                 break;
             case 4:
-                convertedValue = convert.Libra(value);
+                convertedValue = convert.ToLibra(value);
                 symbol = "£";
                 break;
         }

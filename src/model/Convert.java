@@ -1,29 +1,31 @@
 package model;
 
 public class Convert {
-    private Double value;
+    private final double conversionToDollar;
+    private final double conversionToEuro;
+    private final double conversionToWon;
+    private final double conversionToLibra;
 
-
-    public Convert(){}
-    public Convert(Double value) {
-        this.value = value;
+    public Convert(double conversionToDollar, double conversionToEuro, double conversionToWon, double conversionToLibra) {
+        this.conversionToDollar = conversionToDollar;
+        this.conversionToEuro = conversionToEuro;
+        this.conversionToWon = conversionToWon;
+        this.conversionToLibra = conversionToLibra;
     }
 
+    public double toDollar(double value){
+        return value / conversionToDollar;
+    }
 
-    public double Dolar(Double value){
-        Double dolar = 5.17;
-        return value / dolar;
+    public double ToEuro(double value) {
+        return value / conversionToEuro;
     }
-    public Double Euro(Double value){
-        Double euro = 5.52;
-        return value / euro;
+
+    public double ToLibra(double value) {
+        return value / conversionToLibra;
     }
-    public Double Won(Double value){
-        Double won = 0.0040;
-        return value / won;
-    }
-    public Double Libra(Double value){
-        Double libra = 6.22;
-        return value / libra;
+
+    public double ToWon(double value) {
+        return value / conversionToWon;
     }
 }
